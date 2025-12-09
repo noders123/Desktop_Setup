@@ -16,3 +16,6 @@
 
 # argocd CLI
 brew install argocd
+
+# Setup lazygit
+brew install lazygit
