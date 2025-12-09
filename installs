@@ -1,2 +1,18 @@
+# set up brew
+  #Install Necessary Dependencies
+  sudo apt-get install build-essential curl git
+
+  # Install Homebrew
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+  # Add Homebrew to Your PATH
+  (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/$USER/.bashrc
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+  # Test brew
+  brew --version
+  brew doctor
+  
+
 # argocd CLI
 brew install argocd
