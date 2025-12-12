@@ -22,3 +22,6 @@ brew install lazygit
 
 # Setup cursor as wsl command for opening folders in cursor
 echo -e '\n# Cursor \nexport PATH="$PATH:/mnt/c/'Program Files'/cursor/resources/app/bin/"' >> ~/.bashrc
+
+# Install ncdu
+sudo apt install -y ncdu
