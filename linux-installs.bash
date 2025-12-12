@@ -25,3 +25,13 @@ echo -e '\n# Cursor \nexport PATH="$PATH:/mnt/c/'Program Files'/cursor/resources
 
 # Install ncdu
 sudo apt install -y ncdu
+
+# Install Terraform
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
+
+# Install Terragrunt
+brew install terragrunt
+
+# Install AWSCLI
+sudo snap install aws-cli --classic
