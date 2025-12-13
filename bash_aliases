@@ -7,5 +7,4 @@ alias s='ssh -i '
 alias doc='docker compose'
 
 # to open file in chrome as follows: "chrome filename"(works in wsl)
-alias chrome='/mnt/c/Program\ Files/Google/Chrome/Applicatio
-n/chrome.exe'
+alias chrome='/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe'
