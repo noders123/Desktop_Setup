@@ -35,3 +35,6 @@ brew install terragrunt
 
 # Install AWSCLI
 sudo snap install aws-cli --classic
+
+# install kustomize
+brew install kustomize
