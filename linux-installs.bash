@@ -38,3 +38,6 @@ sudo snap install aws-cli --classic
 
 # install kustomize
 brew install kustomize
+
+# install derailed/k9s/k9s
+brew install derailed/k9s/k9s
