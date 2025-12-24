@@ -1,7 +1,38 @@
 #!/usr/bin/env bash
 set -e
 
+
+# -------- setup log file --------
+RESULTS_FILE="$./.linux_installs_results.txt"
+: > "$RESULTS_FILE"   # truncate on each run
+
+
+log_result() {
+  local SECTION="$1"
+  local STATUS="$2"
+  echo "$(date '+%Y-%m-%d %
+  H:%M:%S') | $SECTION | $STATUS" >> "$RESULTS_FILE"
+}
+
+run_section() {
+  local SECTION="$1"
+  shift
+
+  echo
+  echo "=== $SECTION ==="
+
+  if "$@"; then
+    echo "✔ $SECTION succeeded"
+    log_result "$SECTION" "SUCCESS"
+  else
+    echo "✖ $SECTION failed"
+    log_result "$SECTION" "FAILED"
+  fi
+}
+
+
 echo "=== Starting idempotent setup ==="
+
 
 # -------- Helpers --------
 command_exists() {
@@ -101,6 +132,25 @@ fi
 
 install_brew_pkg hashicorp/tap/terraform
 
+
+# -------- Kubectl --------
+install_kubectl() {
+  if command -v kubectl >/dev/null 2>&1; then
+    echo "kubectl already installed: $(kubectl version --client --short 2>/dev/null)"
+    return 0
+  fi
+
+  echo "Installing kubectl..."
+  curl -fsSL https://dl.k8s.io/release/$(curl -fsSL https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl \
+    -o /tmp/kubectl || return 1
+
+  sudo install -m 0755 /tmp/kubectl /usr/local/bin/kubectl || return 1
+  rm -f /tmp/kubectl
+
+  kubectl version --client --short
+}
+
+
 # -------- AWS CLI --------
 if command_exists aws; then
   echo "✔ AWS CLI already installed"
@@ -124,7 +174,7 @@ terraform version || true
 aws --version || true
 k9s version || true
 argocd version --client || true
-
+run_section "kubectl installation" install_kubectl
 echo
 echo "=== Setup complete ==="
 
