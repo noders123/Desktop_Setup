@@ -1,0 +1,7 @@
+Step 1
+Manually install all windows software you want on your system
+
+Step 2
+Verify WSL is installed properly with: "wsl --version"
+
+step 3
