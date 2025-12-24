@@ -3,7 +3,7 @@ set -e
 
 
 # -------- setup log file --------
-RESULTS_FILE="$./.linux_installs_results.txt"
+RESULTS_FILE="./.linux_installs_results.txt"
 : > "$RESULTS_FILE"   # truncate on each run
 
 
