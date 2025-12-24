@@ -2,7 +2,10 @@
 https://www.docker.com/products/docker-desktop/
 
 # Install WSL(Ubuntu Distro)
-wsl.exe --install Ubuntu-24.04
+for ubuntu distro:
+```wsl.exe --install Ubuntu-24.04```
+or 
+```wsl.exe --install <Distro>```
 
 # Install Everything
 https://www.voidtools.com/
