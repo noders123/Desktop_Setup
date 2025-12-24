@@ -1,5 +1,6 @@
 Step 1
 Manually install all windows software you want on your system
+** only wsl is really required for the next steps
 
 Step 2
 Verify WSL is installed properly with: "wsl --version"
